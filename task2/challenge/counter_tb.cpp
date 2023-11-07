@@ -37,10 +37,11 @@ int main(int argc, char **argv, char **env) {
 
         // ++++ Send count value to Vbuddy
         vbdPlot(int(top->count), 0, 255);
+        vbdCycle(i+1);
         // ---- end of Vbuddy output section
 
         // change input stimuli
-        top->rst = (i == 300);
+        top->rst = (i <2) | (i == 15);
         top->en = vbdFlag();
         if (Verilated::gotFinish()) exit(0);
     }
